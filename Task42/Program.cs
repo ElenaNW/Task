@@ -1,7 +1,7 @@
 ﻿// Напишите программу, которая будет преобразовывать
 // десятичное число в двоичное. 3 -> 11   2-> 10
 
-string res = ConvertDecToBin(46);
+string res = ConvertDecToBin());
 Console.WriteLine(res);
 
 
