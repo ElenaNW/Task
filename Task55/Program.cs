@@ -1,16 +1,16 @@
-﻿// Задача 53. Задайте двумерный массив.
-// Напишите программу, которая поменяет местами
-// первую и последнюю строку массива.
+﻿// Задайте двумерный массив. Напишите программу, которая
+// заменяет строки на столбцы. В случае, если это невозможно,
+// программа должна вывести сообщение для пользователя.
 
 int matrixRows = 5;
 int matrixColumns = 5;
 int matrixMinValue = 1;
-int matrixMaxValue = 110;
+int matrixMaxValue = 11;
 
 int[,] matrix = CreateMatrixInt(matrixRows, matrixColumns, matrixMinValue, matrixMaxValue);
 PrintMatrix(matrix);
-ChangeFirstAndLastRows(matrix);
-Console.WriteLine(String.Empty); 
+Console.WriteLine(String.Empty);
+ChMatrix(matrix);
 PrintMatrix(matrix);
 
 int[,] CreateMatrixInt(int rows, int columns, int minValue, int maxValue)
@@ -29,7 +29,6 @@ int[,] CreateMatrixInt(int rows, int columns, int minValue, int maxValue)
 
 void PrintMatrix(int[,] matrix)
 {
-    
     for (int i = 0; i < matrix.GetLength(0); i++) 
     {
         Console.Write("[");
@@ -40,17 +39,18 @@ void PrintMatrix(int[,] matrix)
         }
         Console.WriteLine("  ]");
     }
-    
 }
 
-void ChangeFirstAndLastRows(int[,]matrixForChange)
+void ChMatrix(int[,] matrix)
 {
-    int firstRow = 0; // 0 это указан индекс первой строки. Т.е. индексы строк, которые мы хотим поменять мы записываем в переменные
-    int lastRow = matrixForChange.GetLength(0)-1; // это указан индекс последней строки
-    for (int i = 0; i < matrixForChange.GetLength(1); i++)
+    for (int i = 0; i < matrix.GetLength(0)-1; i++) //чтобы не менялся последний элемент (нижний правый угол) сам на себя
     {
-        int temp = matrixForChange[firstRow,i];
-        matrixForChange[firstRow,i] = matrixForChange[lastRow,i];
-        matrixForChange[lastRow,i] = temp;
+        for (int j = i+1; j < matrix.GetLength(1); j++) // чтобы первый элемент (верхний левый угол) не менялся сам на себя
+        {
+           int temp = matrix[i,j];
+           matrix[i,j] = matrix[j,i];
+           matrix[j,i] = temp;
+        }
+        
     }
 }
