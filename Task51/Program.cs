@@ -32,7 +32,7 @@ void PrintMatrix(int[,] matrix)
 int SumDiagonalNumberOfMatrix(int[,] matrix)
 {
     int size = matrix.GetLength(0);
-    if (size >matrix.GetLength(1)) size = matrix.GetLength(1);
+    if (size > matrix.GetLength(1)) size = matrix.GetLength(1);
     int sum = 0;
     for (int i = 0; i < size; i++)
     {

@@ -5,10 +5,8 @@
 
 int[] array = CreateArrayRndInt(5, 1, 999);
 PrintArray(array);
-
 Console.Write("Введите число, которое хотите найти в массиве: ");
 int number = Convert.ToInt32(Console.ReadLine());
-
 bool isExistNum = IsExistNum(array, number);
 
 int[] CreateArrayRndInt(int size, int min, int max)
@@ -38,7 +36,7 @@ bool IsExistNum(int[] arr, int num)
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] == num) ;
+        if (arr[i] == num);
         return true;
     }
     return false;
